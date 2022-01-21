@@ -17,8 +17,11 @@
 2. In the main manager interface on the extension, check the box `as Usercss`.
 3. Download the theme [here](https://github.com/artilate/youtube/raw/main/RosePineYoutube.user.css).
 4. Click install style.
-5. For changing the theme and accent colors, head to the Stylus manager then click the cogwheel to open the settings panel.
-6. Adjust the settings to your preference.
+
+### Changing theme and accent color
+
+1. For changing the theme and accent colors, head to the Stylus manager then click the cogwheel to open the settings panel.
+2. Adjust the settings to your preference.
 
 For more information or troubleshooting, check out the Stylus [documentation](https://github.com/openstyles/stylus/wiki/Usercss#how-do-i-install-usercss)
 
