@@ -21,8 +21,11 @@
 6. Adjust the settings to your preference.
 
 For more information or troubleshooting, check out the Stylus [documentation](https://github.com/openstyles/stylus/wiki/Usercss#how-do-i-install-usercss)
+
 ## Gallery
-| Rosé Pine | Rosé Pine Moon | Rosé Pine Dawn | 
+
+| Rosé Pine | Rosé Pine Moon | Rosé Pine Dawn |
+|---|---|---|
 |![Rosé Pine with App](assets/rosepine.png)|![Rosé Pine with App](assets/rosepine-moon.png)|![Rosé Pine with App](assets/rosepine-dawn.png)|
 
 ## Thanks to
