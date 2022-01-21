@@ -14,7 +14,7 @@
 ## Usage
 
 1. Install Stylus extension on your browser. [Firefox](https://addons.mozilla.org/en-US/firefox/addon/styl-us), [Chrome](https://chrome.google.com/webstore/detail/stylus/clngdbkpkpeebahjckkjfobafhncgmne) or [Opera](https://addons.opera.com/en-gb/extensions/details/stylus/)
-2. In the main manager interface of the extension, check the box `as Usercss`.
+2. In the main manager interface on the extension, check the box `as Usercss`.
 3. Download the theme [here](https://github.com/artilate/youtube/raw/main/RosePineYoutube.user.css).
 4. Click install style.
 5. For changing the theme and accent colors, head to the Stylus manager then click the cogwheel to open the settings panel.
@@ -22,18 +22,9 @@
 
 For more information or troubleshooting, check out the Stylus [documentation](https://github.com/openstyles/stylus/wiki/Usercss#how-do-i-install-usercss)
 ## Gallery
-
-![Rosé Pine with App](assets/template.png)
+| Rosé Pine | Rosé Pine Moon | Rosé Pine Dawn | 
+|![Rosé Pine with App](assets/rosepine.png)|![Rosé Pine with App](assets/rosepine-moon.png)|![Rosé Pine with App](assets/rosepine-dawn.png)|
 
 ## Thanks to
 
-- [You, it's you!](https://github.com/artilate)
-
-## Style guide
-
-> Be sure to remove this section 😌
-
-- Lowercase meta files, eg. `readme.md`
-- Repo name should be the simplest version of the app name, eg. iterm instead of iTerm2
-- Format repo description as "Soho vibes for App"
-- Generate and upload social image via [Rosé Pine Images](https://rose-pine-images.vercel.app)
+- [artilate](https://github.com/artilate)
