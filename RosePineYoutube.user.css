@@ -1,11 +1,11 @@
 /* ==UserStyle==
 @name Rose Pine YouTube
-@namespace github.com/rose-pine/
-@homepageURL https://github.com/rose-pine/
+@namespace github.com/artilate/youtube
+@homepageURL https://github.com/artilate/youtube
 @version 1.0
-@updateURL https://raw.githubusercontent.com/rose-pine/
-@description Rose Pine Theme for YouTube
-@author RaitaroH
+@updateURL https://github.com/artilate/youtube/raw/main/RosePineYoutube.user.css
+@description Soho vibes for YouTube
+@author artilate
 @license GNU-V3.0
 
 @preprocessor stylus
@@ -39,14 +39,12 @@
 @var text scrollbar_width "Scrollbar width" 8px
 @var color scrollbar_track "Scrollbar background" "rgba(0,0,0, 0)"
 
-@var color mainColor "Custom main color" "#c4a7e7"
-
 ==/UserStyle== */
 
 @-moz-document regexp('https?:\\/\\/(?!gaming\\.)(?!music\\.)(?!tv\\.)(?!artists\\.)(?!studio\\.).*youtube(?!kids\\.).*\\.com\\/(?!premium|howyoutubeworks).*$') {
-	/* Author     : Theme made by RaitaroH, modified by artilate*/
+	/* Author     : Theme made by artilate*/
 	/* Co-authors : null */
-	/* Home       : https://github.com/rose-pine */
+	/* Home       : https://github.com/artilate/youtube */
 	/* Licence    : GNU General Public License v3.0 */
 
 	/*Main color variables*/

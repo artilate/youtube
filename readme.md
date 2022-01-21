@@ -13,17 +13,21 @@
 
 ## Usage
 
-1. Open App
-2. Under settings, import `rose-pine.theme`
-3. Select `Rosé Pine` from the themes dropdown
+1. Install Stylus extension on your browser. [Firefox](https://addons.mozilla.org/en-US/firefox/addon/styl-us), [Chrome](https://chrome.google.com/webstore/detail/stylus/clngdbkpkpeebahjckkjfobafhncgmne) or [Opera](https://addons.opera.com/en-gb/extensions/details/stylus/)
+2. In the main manager interface of the extension, check the box `as Usercss`.
+3. Download the theme [here](https://github.com/artilate/youtube/raw/main/RosePineYoutube.user.css).
+4. Click install style.
+5. For changing the theme and accent colors, head to the Stylus manager then click the cogwheel to open the settings panel.
+6. Adjust the settings to your preference.
 
+For more information or troubleshooting, check out the Stylus [documentation](https://github.com/openstyles/stylus/wiki/Usercss#how-do-i-install-usercss)
 ## Gallery
 
 ![Rosé Pine with App](assets/template.png)
 
 ## Thanks to
 
-- [You, it's you!](https://github.com/<username>)
+- [You, it's you!](https://github.com/artilate)
 
 ## Style guide
 
