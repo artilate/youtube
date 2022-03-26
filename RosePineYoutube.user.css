@@ -2207,7 +2207,8 @@
 	}
 
 	/*SponsorBlock*/
-	#sponsorblockPopup, #sponsorBlockPopupBody, #sponsorBlockPopupContainer
+	#sponsorblockPopup, #sponsorBlockPopupBody, #sponsorBlockPopupContainer,
+	#sponsorBlockPopupContainer .sbControlsMenu-item
 	{
 		background-color: var(--second-background) !important;
 	}
@@ -2234,11 +2235,11 @@
 		background-color: var(--paper-toggle-button-unchecked-bar-color, #000000) !important;
 		opacity: 0.4 !important;
 	}
-	#sponsorBlockPopupContainer .sponsorBlockPageBody .mediumButton
+	#sponsorBlockPopupContainer .sponsorBlockPageBody .sbMediumButton
 	{
-		background: var(--main-color) !important;
+		background-color: var(--main-color) !important;
 	}
-	#sponsorBlockPopupContainer .sponsorBlockPageBody .mediumButton:hover
+	#sponsorBlockPopupContainer .sponsorBlockPageBody .sbMediumButton:hover
 	{
 		filter: brightness(110%);
 	}
