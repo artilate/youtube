@@ -143,6 +143,8 @@
 		--yt-spec-text-primary: var(--main-text) !important;
 		--yt-spec-text-secondary: var(--dimmer-text) !important;
 		--paper-spinner-color: var(--dimmer-text) !important;
+
+		--paper-input-container-color: var(--dimmer-text) !important;
 		
 		--paper-radio-button-unchecked-color: var(--dimmer-text) !important;
 		--paper-radio-button-unchecked-background-color: transparent !important;
@@ -418,6 +420,7 @@
 	}
 
 	/*Feed filter*/
+	#home-chips /*skeleton*/,
 	#chips-wrapper.ytd-feed-filter-chip-bar-renderer
 	{
 		background-color: var(--main-background) !important;
@@ -851,13 +854,20 @@
 		color: var(--main-color) !important;
 	}
 	/*description and other metadata*/
-	.date.ytd-video-secondary-info-renderer, .content.ytd-video-secondary-info-renderer, #title.ytd-metadata-row-renderer
+	.date.ytd-video-secondary-info-renderer, .content.ytd-video-secondary-info-renderer, #title.ytd-metadata-row-renderer,
+	#description-inline-expander > div > span > #formatted-snippet-text > span  /*new description*/
 	{
 		color: var(--dimmer-text) !important;
 	}
 	.content.content-line-height-override.style-scope.ytd-metadata-row-renderer, .content.ytd-metadata-row-header-renderer
 	{
 		color: var(--main-text) !important;
+	}
+	/*comment border next to new description*/
+	ytd-comments-entry-point-header-renderer:not([modern-metapanel]),
+	ytd-comments-entry-point-header-renderer:not([modern-metapanel]) #header.ytd-comments-entry-point-header-renderer
+	{
+		border-color: var(--hover-background) !important;
 	}
 	/*show more*/
 	.more-button, .less-button,
@@ -1354,7 +1364,8 @@
 		fill: var(--main-color) !important;
 	}
 	/*Live now badge*/
-	.badge-style-type-live-now.ytd-badge-supported-renderer
+	.badge-style-type-live-now.ytd-badge-supported-renderer,
+	.badge-style-type-live-now-alternate.ytd-badge-supported-renderer
 	{
 		color: var(--main-color) !important;
 		background: transparent !important;
@@ -1881,6 +1892,17 @@
 		color: var(--main-color) !important;
 		background: var(--second-background) !important;
 	}
+	/*chapter metadata in search results*/
+	ytd-expandable-metadata-renderer
+	{
+		/*this is used on hover, might as well*/
+		background-color: var(--yt-spec-badge-chip-background) !important;
+	}
+	/*expanded chapters in search results*/
+	ytd-macro-markers-list-item-renderer[layout="MACRO_MARKERS_LIST_ITEM_RENDERER_LAYOUT_VERTICAL"]
+	{
+		border-color: var(--second-background) !important;
+	}
 
 	/*Search bar*/
 	ytd-searchbox[mode="legacy"] #container.ytd-searchbox, ytd-searchbox[mode="material-centered"] #container.ytd-searchbox,
@@ -1904,26 +1926,36 @@
 	{
 		color: var(--main-text) !important;
 	}
-	/*Search icon*/
+	/*Right search icon 🔎 */
 	#search-icon-legacy.ytd-searchbox,
 	#masthead-search .search-btn-component, #masthead-search .search-btn-component .start /*account*/
 	{
 		background: var(--hover-background) !important;
 		border-color: var(--hover-background) !important;
 	}
+	#search-icon-legacy.ytd-searchbox:hover yt-icon.ytd-searchbox
+	{
+		color: var(--main-color) !important;
+	}
 	#masthead-search .search-btn-component .yt-uix-button-content /*account*/
 	{
 		filter: invert(1);
 	}
-	#search-icon-legacy.ytd-searchbox yt-icon.ytd-searchbox
+	/*left 🔎 icon - shown on focus*/
+	#search-icon.ytd-searchbox
 	{
 		color: var(--main-text) !important;
 	}
-	#search-icon-legacy.ytd-searchbox:hover yt-icon.ytd-searchbox, #search-icon.ytd-searchbox:hover
+	#search-icon.ytd-searchbox:hover, #search-icon.ytd-searchbox:hover
 	{
 		color: var(--main-color) !important;
 	}
-	/*Main backgrounds*/
+	/*results 🔎 icon*/
+	.sbqs_c::before
+	{
+		filter: invert(1);
+	}
+	/*Results backgrounds*/
 	.sbsb_a,.sbdd_b
 	{
 		background: var(--second-background) !important;
@@ -2143,130 +2175,6 @@
 		color: var(--dimmer-text) !important;
 	}
 
-	/*Iridium support, former YouTube+*/
-	#iridium_settings .iri-settings-button.danger,.active_sidebar
-	{
-		background-color: var(--main-color) !important;
-		border-color: var(--main-color) !important;
-	}
-	.feature-link
-	{
-		color: var(--main-color) !important;
-	}
-	.iri-dark-mode-settings .sidebar_section:hover:not(.active_sidebar)
-	{
-		background-color: var(--hover-background) !important;
-	}
-	.sidebar_section
-	{
-		color: var(--dimmer-text) !important;
-	}
-	.iri-dark-mode-settings #iridium_settings {
-		background-color: var(--second-background) !important;
-	}
-	.iri-dark-mode-settings #iridium_settings_sidebar, .iri-dark-mode-settings #settings_section, .iri-dark-mode-settings #iridium-text-editor
-	{
-		background-color: var(--main-background) !important;
-	}
-	.iri-video-count
-	{
-		color: var(--dimmer-text) !important;
-		opacity: .8;
-	}
-	.iri-video-count:hover
-	{
-		color: var(--main-color) !important;
-		opacity: 1 !important;
-	}
-	.iri-add-to-blacklist:hover svg
-	{
-		fill: var(--main-color) !important;
-	}
-	#iri-quick-controls button svg
-	{
-		fill: var(--dimmer-text) !important;
-	}
-	#iri-quick-controls button[enabled] svg
-	{
-		fill: var(--main-color) !important;
-		opacity: .9;
-	}
-	#iri-quick-controls button:hover svg, #iri-quick-controls button[enabled]:hover svg
-	{
-		fill: var(--main-color) !important;
-		opacity: 1 !important;
-	}
-	.iri-quick-controls-tooltip, .iri-tooltip
-	{
-		background-color: var(--hover-background) !important;
-		color: var(--main-color) !important;
-	}
-	#iri-show-comments:hover
-	{
-		color: var(--main-color) !important;
-	}
-
-	/*SponsorBlock*/
-	#sponsorblockPopup, #sponsorBlockPopupBody, #sponsorBlockPopupContainer,
-	#sponsorBlockPopupContainer .sbControlsMenu-item
-	{
-		background-color: var(--second-background) !important;
-	}
-	#sponsorBlockPopupContainer
-	{
-		padding-top: 12px !important;
-		margin-bottom: 20px !important;
-	}
-	#sponsorBlockPopupContainer .smallLink
-	{
-		color: var(--main-text) !important;
-		font-size: 13px !important;
-	}
-	#sponsorBlockPopupContainer .smallLink:hover
-	{
-		color: var(--main-color) !important;
-	}
-	#sponsorBlockPopupContainer .switchBg.green
-	{
-		background: var(--main-color) !important;
-	}
-	#sponsorBlockPopupContainer .switchBg.white
-	{
-		background-color: var(--paper-toggle-button-unchecked-bar-color, #000000) !important;
-		opacity: 0.4 !important;
-	}
-	#sponsorBlockPopupContainer .sponsorBlockPageBody .sbMediumButton
-	{
-		background-color: var(--main-color) !important;
-	}
-	#sponsorBlockPopupContainer .sponsorBlockPageBody .sbMediumButton:hover
-	{
-		filter: brightness(110%);
-	}
-	/*logo change*/
-	#sponsorBlockPopupLogo, .sponsorSkipLogo
-	{
-		display: block !important;
-		-moz-box-sizing: border-box !important;
-		box-sizing: border-box !important;
-		background: url(https://raw.githubusercontent.com/RaitaroH/YouTube-DeepDark/master/YT_Images/IconSponsorBlocker256px.png) top left no-repeat !important;
-		background-size: 100% !important;
-		position: relative !important;
-	}
-	#sponsorBlockPopupLogo
-	{
-		width: 40px !important;
-		height: 40px !important;
-		padding-left: 40px !important;
-	}
-	/*for overlays*/
-	.sponsorSkipLogo
-	{
-		width: 18px !important;
-		height: 18px !important;
-		padding-left: 18px !important;
-	}
-
 	/*Comments*/
 	yt-formatted-string.ytd-comments-header-renderer,
 	#contenteditable-root.yt-formatted-string[aria-label].yt-formatted-string:empty::before,
@@ -2330,6 +2238,11 @@
 	.unfocused-line.tp-yt-paper-input-container
 	{
 		border-color: var(--dimmer-text) !important;
+	}
+	/*emoji selector*/
+	#emojis.ytd-commentbox
+	{
+		background-color: var(--second-background) !important;
 	}
 	/*comments themselves*/
 	#author-text.yt-simple-endpoint.ytd-comment-renderer
@@ -2825,6 +2738,16 @@
 	}
 
 	/*Notification*/
+	/*bell icon notification count*/
+	.yt-spec-icon-badge-shape--type-notification .yt-spec-icon-badge-shape__badge
+	{
+		background-color: var(--main-color) !important;
+		border: none !important;
+	}
+	button.yt-icon-button:hover .yt-spec-icon-badge-shape--type-notification .yt-spec-icon-badge-shape__badge
+	{
+		color: var(--main-text) !important;
+	}
 	/*load spinner - also for comments*/
 	.spinner-layer.layer-1.tp-yt-paper-spinner, .spinner-layer.layer-2.tp-yt-paper-spinner, 
 	.spinner-layer.layer-3.tp-yt-paper-spinner, .spinner-layer.layer-4.tp-yt-paper-spinner
@@ -3911,5 +3834,93 @@
 	ytd-hotkey-dialog-section-option-renderer
 	{
 		border-color: var(--hover-background) !important;
+	}
+
+	/*SponsorBlock*/
+	/*logo change*/
+	#sponsorBlockPopupLogo, .sponsorSkipLogo
+	{
+		display: block !important;
+		-moz-box-sizing: border-box !important;
+		box-sizing: border-box !important;
+		background: url(https://raw.githubusercontent.com/RaitaroH/YouTube-DeepDark/master/YT_Images/IconSponsorBlocker256px.png) top left no-repeat !important;
+		background-size: 100% !important;
+		position: relative !important;
+	}
+	#sponsorBlockPopupLogo
+	{
+		width: 40px !important;
+		height: 40px !important;
+		padding-left: 40px !important;
+	}
+	/*for overlays*/
+	.sponsorSkipLogo
+	{
+		width: 18px !important;
+		height: 18px !important;
+		padding-left: 18px !important;
+	}
+	.sponsorBlockTooltip
+	{
+		background-color: var(--hover-background) !important;
+	}
+}
+
+@-moz-document url-prefix('https://www.youtube.com/redirect') {
+	/*Are you sure you want to leave YouTube? redirect*/
+	/*seems like youtube will never update this page so, yeah*/
+	#invalid-token-redirect-warning-text /*h1*/
+	{
+		color: var(--main-text) !important;
+	}
+	/*span*/
+	#redirect-main-text
+	{
+		color: var(--dimmer-text) !important;
+	}
+	#redirect-main-text .bolded
+	{
+		color: var(--main-color);
+	}
+	/*search*/
+	#masthead-search-terms-border
+	{
+		border-color: var(--hover-background) !important;
+		background-color: var(--hover-background) !important;
+		box-shadow: var(--shadow) !important;
+	}
+	#masthead-search-terms
+	{
+		color: var(--main-text);
+	}
+	.search-button
+	{
+		background: var(--hover-background) !important;
+		border-color: var(--hover-background) !important;
+	}
+	/*🔍 is missing, nice*/
+	.search-button-content
+	{
+		background: no-repeat url("data:image/svg+xml;base64,PHN2ZyBmaWxsPSJub25lIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjxwYXRoIGQ9Ik0xNy4zOTE3IDE2LjgwODNMMTIuNzMzMyAxMi4xNUMxMy42MjUgMTEuMTI1IDE0LjE2NjcgOS43OTE2NyAxNC4xNjY3IDguMzMzMzNDMTQuMTY2NyA1LjEwODMzIDExLjU1ODMgMi41IDguMzMzMzMgMi41QzUuMTA4MzMgMi41IDIuNSA1LjEwODMzIDIuNSA4LjMzMzMzQzIuNSAxMS41NTgzIDUuMTA4MzMgMTQuMTY2NyA4LjMzMzMzIDE0LjE2NjdDOS43OTE2NyAxNC4xNjY3IDExLjEyNSAxMy42MjUgMTIuMTUgMTIuNzQxN0wxNi44MDgzIDE3LjRMMTcuMzkxNyAxNi44MDgzWk04LjMzMzMzIDEzLjMzMzNDNS41NzUgMTMuMzMzMyAzLjMzMzMzIDExLjA5MTcgMy4zMzMzMyA4LjMzMzMzQzMuMzMzMzMgNS41NzUgNS41NzUgMy4zMzMzMyA4LjMzMzMzIDMuMzMzMzNDMTEuMDkxNyAzLjMzMzMzIDEzLjMzMzMgNS41NzUgMTMuMzMzMyA4LjMzMzMzQzEzLjMzMzMgMTEuMDkxNyAxMS4wOTE3IDEzLjMzMzMgOC4zMzMzMyAxMy4zMzMzWiIgZmlsbD0iIzAzMDMwMyIvPjwvc3ZnPg==") !important;
+		filter: invert(1);
+	}
+	#redirect-backto-safety-button:hover
+	{
+		color: var(--main-text) !important;
+	}
+	/*logo icon is also missing, but this __should__ change in the future*/
+	.logo {
+		background: no-repeat url("https://raw.githubusercontent.com/RaitaroH/YouTube-DeepDark/master/YT_Images/Logo.png") !important;
+		background-size: 70% !important;
+		padding: 10px;
+		width: 120px !important;
+		height: 33px !important;
+		box-sizing: border-box !important;
+		position: relative;
+		right: -30px;
+	}
+	#logo-container .content-region
+	{
+		color: var(--main-text) !important;
 	}
 }
