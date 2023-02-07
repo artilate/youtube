@@ -42,7 +42,7 @@
 
 ==/UserStyle== */
 
-@-moz-document regexp("") {
+@-moz-document regexp('https?:\\/\\/(?!gaming\\.)(?!music\\.)(?!tv\\.)(?!artists\\.)(?!studio\\.).*youtube(?!kids\\.).*\\.com\\/(?!premium|howyoutubeworks).*$') {
 	/* Author     : Theme made by artilate*/
 	/* Co-authors : null */
 	/* Home       : https://github.com/artilate/youtube */
