@@ -42,7 +42,7 @@
 
 ==/UserStyle== */
 
-@-moz-document regexp('https?:\\/\\/(?!gaming\\.)(?!music\\.)(?!tv\\.)(?!artists\\.)(?!studio\\.).*youtube(?!kids\\.).*\\.com\\/(?!premium|howyoutubeworks).*$') {
+@-moz-document regexp("") {
 	/* Author     : Theme made by artilate*/
 	/* Co-authors : null */
 	/* Home       : https://github.com/artilate/youtube */
@@ -70,8 +70,8 @@
 			else if mainColorDark == "Iris" {
 				--main-color: #c4a7e7;
 			}
-			--main-background: #1f1d2e;
-			--second-background: #1f1d2e;
+			--main-background: #191724;
+			--second-background: #191724;
 			--hover-background: #26233a;
 			--main-text: #e0def4;
 			--dimmer-text: #908caa;
