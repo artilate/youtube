@@ -248,6 +248,15 @@
 		fill: var(--main-color) !important;
 	}
 
+    /* video description fix */
+
+    ytd-text-inline-expander#description-inline-expander yt-attributed-string span span {
+        color: var(--main-text) !important;
+    }
+    
+    ytd-text-inline-expander#description-inline-expander yt-attributed-string span span a {
+        color: var(--main-color) !important;
+    }
     
     /* top bar icon fix */
     
