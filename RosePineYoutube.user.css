@@ -2,7 +2,7 @@
 @name Rose Pine YouTube
 @namespace github.com/artilate/youtube
 @homepageURL https://github.com/artilate/youtube
-@version 1.3
+@version 1.3.1
 
 @updateURL https://github.com/artilate/youtube/raw/main/RosePineYoutube.user.css
 @description Soho vibes for YouTube
@@ -247,6 +247,28 @@
 	{
 		fill: var(--main-color) !important;
 	}
+
+    /* video description fix */
+
+    ytd-text-inline-expander#description-inline-expander yt-attributed-string span span {
+        color: var(--main-text) !important;
+    }
+    
+    ytd-text-inline-expander#description-inline-expander yt-attributed-string span span a {
+        color: var(--main-color) !important;
+    }
+    
+    /* top bar icon fix */
+    
+    yt-icon#logo-icon .external-icon > svg > g:nth-child(1) path:nth-child(1) {
+        fill: var(--main-color) !important;
+    }
+    
+    yt-icon#logo-icon .external-icon > svg g:nth-child(2) {
+        fill: var(--main-text) !important;
+    }
+    
+    
 	#logo-icon-container.ytd-topbar-logo-renderer #youtube-paths.ytd-topbar-logo-renderer path.ytd-topbar-logo-renderer,
 	#youtube-red-paths /*premium*/
 	{
@@ -1703,9 +1725,6 @@
 		border-bottom: 1px solid var(--main-color) !important;
 	}
 
-	/*New logo*/
-	#logo-icon-container.ytd-topbar-logo-renderer svg g path[fill*="#FF0000"],
-	ytd-topbar-logo-renderer.style-scope a svg > g > g:nth-child(1) > path:nth-child(1),
 	/*cookie version*/
 	svg.ytd-consent-bump-v2-lightbox > g:nth-child(1) > g:nth-child(1) > path:nth-child(1)
 	{
