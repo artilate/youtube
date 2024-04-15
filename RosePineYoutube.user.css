@@ -523,7 +523,7 @@
 	/*header*/
 	#channel-header.ytd-c4-tabbed-header-renderer, #tabs-inner-container.ytd-c4-tabbed-header-renderer
 	{
-		background: var(--hover-background) !important;
+		background: var(--second-background) !important;
 	}
 	#channel-title.ytd-c4-tabbed-header-renderer
 	{
@@ -1200,7 +1200,7 @@
 	.yt-spec-button-shape-next--overlay.yt-spec-button-shape-next--tonal, .yt-spec-button-shape-next--overlay.yt-spec-button-shape-next--tonal:hover, /*on shorts*/
 	.ytp-sb-subscribe, a.ytp-sb-subscribe /*in cards... why yt why*/
 	{
-		background-color: var(--second-background) !important;
+		background-color: var(--hover-background) !important;
 		border-color: var(--second-background) !important;
 		box-shadow: var(--shadow) !important;
 		color: var(--main-text) !important;
@@ -1208,7 +1208,7 @@
 	/*unsubscribe confirm dialog*/
 	.yt-spec-button-shape-next--call-to-action.yt-spec-button-shape-next--text
 	{
-		color: var(--main-color) !important;
+		color: var(--main-text) !important;
 	}
 	.yt-spec-button-shape-next--call-to-action.yt-spec-button-shape-next--text:hover
 	{
@@ -1218,13 +1218,15 @@
 	.yt-spec-button-shape-next--mono.yt-spec-button-shape-next--tonal[aria-label="Join this channel"],
 	.yt-spec-button-shape-next--call-to-action.yt-spec-button-shape-next--filled /*in window*/
 	{
-		background-color: var(--second-background) !important;
+		background-color: var(--hover-background) !important;
 		border-color: var(--second-background) !important;
+        box-shadow: var(--shadow) !important;
+        color: var(--main-text);
 	}
 	/*comment button*/
 	ytd-button-renderer#submit-button.ytd-commentbox .yt-spec-button-shape-next--call-to-action.yt-spec-button-shape-next--filled
 	{
-		background-color: var(--main-color) !important;
+		background-color: var(--hover-background) !important;
 		color: var(--main-text) !important;
 	}
 	/*download panel > get trial button*/
@@ -1232,7 +1234,7 @@
 	ytd-offline-promo-renderer.ytd-popup-container yt-button-renderer#action-button .yt-spec-button-shape-next--call-to-action.yt-spec-button-shape-next--filled,
 	yt-third-party-network-section-renderer.ytd-unified-share-panel-renderer yt-button-renderer#copy-button .yt-spec-button-shape-next--call-to-action.yt-spec-button-shape-next--filled
 	{
-		background-color: var(--main-color) !important;
+		background-color: var(--hover-background) !important;
 		color: var(--main-text) !important;
 	}
 	/*Thanks panel > "Buy and Send" button*/
@@ -1998,6 +2000,11 @@
 		/*this is used on hover, might as well*/
 		background-color: var(--yt-spec-badge-chip-background) !important;
 	}
+    #description.ytd-watch-metadata
+    {
+        background: var(--hover-background);
+        box-shadow: var(--shadow) !important;
+    }
 	/*expanded chapters in search results*/
 	ytd-macro-markers-list-item-renderer[layout="MACRO_MARKERS_LIST_ITEM_RENDERER_LAYOUT_VERTICAL"]
 	{
@@ -2015,7 +2022,7 @@
 	#container.ytd-searchbox,
 	#masthead-search-terms /*account settings page*/
 	{
-		background: var(--main-background) !important;
+		background: var(--hover-background) !important;
 		border-color: var(--main-background) !important;
 		box-shadow: none !important;
 	}
@@ -2059,6 +2066,7 @@
 	.sbqs_c::before
 	{
 		filter: invert(1);
+        color: #fff !important;
 	}
 	/*Results backgrounds*/
 	.sbsb_a,.sbdd_b
@@ -2882,6 +2890,10 @@
 	{
 		color: var(--main-color) !important;
 	}
+    .yt-spec-button-shape-next--mono.yt-spec-button-shape-next--text:hover
+    {
+        background: var(--hover-background) !important;
+    }
 	.metadata.ytd-notification-renderer,
 	.exp-responsive .yt-lockup-tile .yt-lockup-byline /*account settings*/
 	{
@@ -4045,4 +4057,8 @@
 	{
 		color: var(--main-text) !important;
 	}
+    .yt-spec-button-shape-next--call-to-action.yt-spec-button-shape-next--filled {
+        color: var(--main-text) !important;
+        background-color: var(--hover-background) !important;
+    }
 }
