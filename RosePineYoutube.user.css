@@ -2,7 +2,7 @@
 @name Rose Pine YouTube
 @namespace github.com/artilate/youtube
 @homepageURL https://github.com/artilate/youtube
-@version 1.3.1
+@version 1.4.2.1
 
 @updateURL https://github.com/artilate/youtube/raw/main/RosePineYoutube.user.css
 @description Soho vibes for YouTube
@@ -139,8 +139,10 @@
 
 	*
 	{
-		scrollbar-color: var(--main-color) scrollbar_track !important;
-		scrollbar-width: thin !important;
+		/*Scrollbar for firefox*/
+		scrollbar-color: scrollbar_track transparent !important;
+		scrollbar-width: scrollbar_width !important;
+
 		--yt-spec-text-primary: var(--main-text) !important;
 		--yt-spec-text-secondary: var(--dimmer-text) !important;
 		--paper-spinner-color: var(--dimmer-text) !important;
@@ -164,20 +166,31 @@
 		--yt-spec-brand-button-background: var(--main-color) !important; /*in incognito this may be used as subscribe button but is inconsistent .yt-spec-button-shape-next--brand.yt-spec-button-shape-next--filled*/
 
 		--yt-formatted-string-bold-color: var(--dimmer-text) !important; /*this affects number of views*/
+
+		--yt-lightsource-section1-color: var(--main-background) !important; /* watch history header */
+
+		/*clip icon hover*/
+		--yt-spec-icon-active-other: var(--main-text) !important;
+		--iron-icon-fill-color: var(--main-text) !important;
+		
+		--yt-spec-base-background: var(--second-background) !important;
+	
+
+		/*unlock special perks and other such dialogs*/
+		--yt-spec-raised-background: var(--hover-background) !important;
 	}
 	/*Scrollbar fix for chrome*/
 	*:not([hide-scrollbar]) ::-webkit-scrollbar-thumb
 	{
-		background: var(--main-color) !important;
+		background: scrollbar_track !important;
 	}
 	*:not([hide-scrollbar]) ::-webkit-scrollbar
 	{
 		width: scrollbar_width !important;
 	}
-	/*Scrollbar fix for firefox*/
 	::-webkit-scrollbar-track
 	{
-		background: scrollbar_track !important;
+		background: transparent !important;
 	}
 	::-webkit-scrollbar-thumb
 	{
@@ -247,28 +260,6 @@
 	{
 		fill: var(--main-color) !important;
 	}
-
-    /* video description fix */
-
-    ytd-text-inline-expander#description-inline-expander yt-attributed-string span span {
-        color: var(--main-text) !important;
-    }
-    
-    ytd-text-inline-expander#description-inline-expander yt-attributed-string span span a {
-        color: var(--main-color) !important;
-    }
-    
-    /* top bar icon fix */
-    
-    yt-icon#logo-icon .external-icon > svg > g:nth-child(1) path:nth-child(1) {
-        fill: var(--main-color) !important;
-    }
-    
-    yt-icon#logo-icon .external-icon > svg g:nth-child(2) {
-        fill: var(--main-text) !important;
-    }
-    
-    
 	#logo-icon-container.ytd-topbar-logo-renderer #youtube-paths.ytd-topbar-logo-renderer path.ytd-topbar-logo-renderer,
 	#youtube-red-paths /*premium*/
 	{
@@ -432,10 +423,25 @@
 		background-color: var(--main-color) !important;
 	}
 
+	/*Youtube Premium ad*/
+	#background-content.ytd-statement-banner-renderer
+	{
+		background-color: var(--second-background) !important;
+	}
+
 	/*Main page video hover preview*/
 	#video-preview-container.ytd-video-preview
 	{
 		background: var(--second-background) !important;
+		color: var(--main-text) !important;
+	}
+	#text.yt-dynamic-sizing-formatted-string
+	{
+		color: var(--main-text) !important;
+	}
+	#video-preview-container.ytd-video-preview .yt-spec-touch-feedback-shape--touch-response .yt-spec-touch-feedback-shape__fill
+	{
+		background-color: var(--main-color) !important;
 	}
 
 	/*Feed filter*/
@@ -520,6 +526,11 @@
 	}
 
 	/*Channel page*/
+	/*cover art background*/
+	#page-header-container.ytd-tabbed-page-header, #tabs-container.ytd-tabbed-page-header
+	{
+		background-color: var(--main-background) !important;
+	}
 	/*header*/
 	#channel-header.ytd-c4-tabbed-header-renderer, #tabs-inner-container.ytd-c4-tabbed-header-renderer
 	{
@@ -533,18 +544,44 @@
 	{
 		color: var(--dimmer-text) !important;
 	}
-	.tab-content.paper-tab, .tab-content.tp-yt-paper-tab
+	.truncated-text-wiz
+	{
+		color: var(--dimmer-text) !important;
+	}
+	/*show more*/
+	.truncated-text-wiz__absolute-button
+	{
+		color: var(--main-color) !important;
+	}
+	.tab-content.paper-tab, .tab-content.tp-yt-paper-tab,
+	.yt-tab-shape-wiz__tab
 	{
 		color: var(--main-text) !important;
 	}
 	paper-tab:hover .tab-content.paper-tab,
-	tp-yt-paper-tab:hover > .tab-content.tp-yt-paper-tab
+	tp-yt-paper-tab:hover > .tab-content.tp-yt-paper-tab,
+	.yt-tab-shape-wiz__tab--tab-selected
 	{
 		color: var(--main-color) !important;
 	}
 	tp-yt-paper-tabs
 	{
 		--paper-tabs-selection-bar-color: var(--main-color) !important;
+	}
+	/* for tab selected */
+	.yt-tab-group-shape-wiz__slider {
+		background-color: var(--main-color) !important;
+	}
+	/* Join button, Sign In, Show Transcript */
+	.yt-spec-button-shape-next--call-to-action.yt-spec-button-shape-next--outline
+	{
+		color: var(--main-text);
+		background-color: var(--second-background) !important;
+	}
+	/* vote now / answer now posts */
+	.style-scope.ytd-post-renderer .yt-spec-button-shape-next--call-to-action.yt-spec-button-shape-next--outline
+	{
+		background: var(--hover-background) !important;
 	}
 	/*search*/
 	.input-content.paper-input-container label, .input-content.paper-input-container .paper-input-label,
@@ -885,9 +922,14 @@
 		stroke: var(--main-color) !important
 	}
 	/*on shorts - so here is filled by default, thus above I am using main-color instead to keep it consistent*/
-	.yt-spec-button-shape-next--mono.yt-spec-button-shape-next--filled > div > yt-icon > svg > g > path
+	.yt-spec-button-shape-next--mono.yt-spec-button-shape-next--filled .style-scope.yt-icon
 	{
-		fill: var(--main-color) !important;
+		color: var(--main-color) !important;
+	}
+	.yt-spec-button-shape-next--overlay-dark.yt-spec-button-shape-next--filled
+	{
+		color: var(--main-color) !important;
+		background-color: var(--second-background) !important;
 	}
 
 	/*description and other metadata*/
@@ -901,7 +943,8 @@
 		background: var(--hover-background) !important;
 		/*--yt-spec-badge-chip-background*/
 	}
-	ytd-watch-metadata[modern-metapanel] #description.ytd-watch-metadata .yt-simple-endpoint.style-scope.yt-formatted-string
+	ytd-watch-metadata[modern-metapanel] #description.ytd-watch-metadata .yt-simple-endpoint.style-scope.yt-formatted-string,
+	.yt-core-attributed-string__link--call-to-action-color
 	{
 		color: var(--main-color) !important;
 	}
@@ -921,13 +964,14 @@
 	{
 		color: var(--dimmer-text) !important;
 	}
-	a.yt-simple-endpoint.yt-formatted-string:only-of-type:hover
-	{
-		color: var(--main-color) !important;
-	}
 	a.yt-simple-endpoint.yt-formatted-string:only-of-type
 	{
 		color: var(--main-text) !important;
+	}
+	a.yt-simple-endpoint.yt-formatted-string:only-of-type:hover,
+	#text.ytd-channel-name a.yt-simple-endpoint.yt-formatted-string:only-of-type
+	{
+		color: var(--main-color) !important;
 	}
 	/*Borders*/
 	#contents.ytd-section-list-renderer > .ytd-section-list-renderer:not(:last-child):not(ytd-page-introduction-renderer)
@@ -1194,7 +1238,8 @@
 
 	/*2022 Nov changes*/
 	/*subscribe button*/
-	.yt-spec-button-shape-next--mono.yt-spec-button-shape-next--filled,
+	.yt-spec-button-shape-next--mono.yt-spec-button-shape-next--filled, /*Show more on home page*/
+	.yt-spec-button-shape-next--mono.yt-spec-button-shape-next--outline, /* as of oct 2023 */
 	.yt-spec-button-shape-next--mono.yt-spec-button-shape-next--tonal,  /*NOTE: this affects other material buttons - I would say desired effect*/
 	.yt-spec-button-shape-next--overlay.yt-spec-button-shape-next--filled, .yt-spec-button-shape-next--overlay.yt-spec-button-shape-next--filled:hover, /*on shorts*/
 	.yt-spec-button-shape-next--overlay.yt-spec-button-shape-next--tonal, .yt-spec-button-shape-next--overlay.yt-spec-button-shape-next--tonal:hover, /*on shorts*/
@@ -1205,12 +1250,27 @@
 		box-shadow: var(--shadow) !important;
 		color: var(--main-text) !important;
 	}
+	/*2024 March*/
+	ytd-live-chat-frame #show-hide-button.ytd-live-chat-frame > ytd-button-renderer.ytd-live-chat-frame
+	{
+		background-color: transparent !important;
+	}
+	/*fix black "personalized" icon*/
+	.yt-spec-button-shape-next--icon-leading-trailing svg > g:nth-child(2) > g > g:nth-child(2) > path:nth-child(2)
+	{
+		fill: var(--main-text) !important;
+	}
+	/* to fix white corners for .yt-spec-button-shape-next--mono.yt-spec-button-shape-next--filled  */
+	.button-container.ytd-rich-shelf-renderer {
+		background-color: transparent;
+	}
 	/*unsubscribe confirm dialog*/
 	.yt-spec-button-shape-next--call-to-action.yt-spec-button-shape-next--text
 	{
 		color: var(--main-color) !important;
 	}
-	.yt-spec-button-shape-next--call-to-action.yt-spec-button-shape-next--text:hover
+	.yt-spec-button-shape-next--call-to-action.yt-spec-button-shape-next--text:hover,
+	.yt-spec-button-shape-next--mono.yt-spec-button-shape-next--tonal:hover
 	{
 		background-color: var(--yt-spec-10-percent-layer) !important;
 	}
@@ -1221,10 +1281,19 @@
 		background-color: var(--second-background) !important;
 		border-color: var(--second-background) !important;
 	}
+	.yt-spec-button-shape-next--mono.yt-spec-button-shape-next--outline:hover
+	{
+		background-color: var(--yt-spec-10-percent-layer) !important;
+	}
 	/*comment button*/
 	ytd-button-renderer#submit-button.ytd-commentbox .yt-spec-button-shape-next--call-to-action.yt-spec-button-shape-next--filled
 	{
 		background-color: var(--main-color) !important;
+		color: var(--main-text) !important;
+	}
+	/* button labels */
+	.yt-spec-button-shape-with-label__label
+	{
 		color: var(--main-text) !important;
 	}
 	/*download panel > get trial button*/
@@ -1255,7 +1324,8 @@
 	}
 	if join-color /*overwriting the above*/
 	{
-		.yt-spec-button-shape-next--mono.yt-spec-button-shape-next--tonal[aria-label="Join this channel"]
+		.yt-spec-button-shape-next--mono.yt-spec-button-shape-next--tonal[aria-label="Join this channel"],
+		yt-button-shape:nth-child(1) > .yt-spec-button-shape-next--size-m.yt-spec-button-shape-next--outline
 		{
 			background-color: var(--main-color) !important;
 			border-color: var(--main-color) !important;
@@ -1533,14 +1603,15 @@
 
 	/* Code takken from https://userstyles.org/styles/95280 */
 	/* scrubber button */
-	.html5-scrubber-button:hover, .ytp-chrome-controls .ytp-button[aria-pressed]::after, .ytp-scrubber-button:hover, .html5-video-player:not(.ytp-color-party) .ytp-swatch-background-color, .ytp-swatch-background-color-secondary
+	.html5-scrubber-button:hover, .ytp-chrome-controls .ytp-button[aria-pressed]::after, .ytp-scrubber-button:hover, .html5-video-player:not(.ytp-color-party) .ytp-swatch-background-color, .ytp-swatch-background-color-secondary,
+	.PlayerControlsProgressBarHostProgressBarPlayheadDot /*shorts*/
 	{
 		background: var(--main-color) !important;
 	}
 	/* progress bar */
 	.html5-video-player:not(.ytp-color-party) .html5-play-progress,
 	.html5-video-player:not(.ytp-color-party) .ytp-play-progress,
-	.progress-bar-played.ytd-progress-bar-line /* on shorts*/
+	.progress-bar-played.ytd-progress-bar-line, .PlayerControlsProgressBarHostProgressBarPlayed /* on shorts*/
 	{
 		background: var(--main-color) !important;
 	}
@@ -1725,12 +1796,15 @@
 		border-bottom: 1px solid var(--main-color) !important;
 	}
 
+	/*New logo*/
+	#logo-icon-container.ytd-topbar-logo-renderer svg g path[fill*="#FF0000"],
+	ytd-topbar-logo-renderer.style-scope > a > div > ytd-logo > yt-icon > yt-icon-shape > icon-shape > div > svg > svg:nth-child(1) > g:nth-child(1) > path:nth-child(1),
 	/*cookie version*/
 	svg.ytd-consent-bump-v2-lightbox > g:nth-child(1) > g:nth-child(1) > path:nth-child(1)
 	{
 		fill: var(--main-color) !important;
 	}
-	ytd-topbar-logo-renderer.style-scope a svg > g > g:nth-child(1) > path:nth-child(2),
+	ytd-topbar-logo-renderer.style-scope > a > div > ytd-logo > yt-icon > yt-icon-shape > icon-shape > div > svg > svg:nth-child(1) > g:nth-child(2)
 	/*cookie version*/
 	g.ytd-consent-bump-v2-lightbox:nth-child(2) > g:nth-child(1) > *
 	{
@@ -1750,6 +1824,14 @@
 	#animated-yoodle
 	{
 		filter: invert(90%) grayscale(1);
+	}
+	/*Shorts logo*/
+	/*on home page*/
+	ytd-rich-section-renderer.style-scope > div > ytd-rich-shelf-renderer  yt-icon-shape > icon-shape > div > svg > g > path:nth-child(1),
+	/*on video page*/
+	yt-icon.ytd-reel-shelf-renderer > yt-icon-shape > icon-shape > div > svg > g > path:nth-child(1)
+	{
+		fill: var(--main-color) !important;
 	}
 
 	/*Playlist page*/
@@ -2112,6 +2194,7 @@
 	#header-text.ytd-voice-search-dialog-renderer,
 	#microphone-label.ytd-voice-search-dialog-renderer,
 	#microphone.ytd-voice-search-dialog-renderer[state="try-again"] #microphone-circle.ytd-voice-search-dialog-renderer yt-icon.ytd-voice-search-dialog-renderer
+	.yt-spec-button-shape-next--mono.yt-spec-button-shape-next--text
 	{
 		color: var(--main-text) !important;
 	}
@@ -2396,6 +2479,11 @@
 	{
 		color: var(--main-color) !important;
 	}
+	.yt-spec-button-shape-next--mono.yt-spec-button-shape-next--text:hover
+	{
+		/*background-color: var(--hover-background) !important;*/
+		background-color: var(--yt-spec-10-percent-layer) !important;
+	}
 	/*Show more videos*/
 	yt-next-continuation.ytd-watch-next-secondary-results-renderer
 	{
@@ -2425,7 +2513,8 @@
 		color: var(--dimmer-text) !important;
 	}
 	/*Links in description and published date for comments*/
-	#content.ytd-expander a
+	#content.ytd-expander a,
+	.yt-core-attributed-string--link-inherit-color .yt-core-attributed-string__link--call-to-action-color
 	{
 		color: var(--main-color) !important;
 		opacity: 0.9;
@@ -2436,7 +2525,8 @@
 		color: var(--dimmer-text) !important;
 		opacity: .8;
 	}
-	#content.ytd-expander a:hover, #published-time-text.ytd-comment-renderer a:hover, #content.ytd-expander #name.ytd-author-comment-badge-renderer:hover
+	#content.ytd-expander a:hover, #published-time-text.ytd-comment-renderer a:hover, #content.ytd-expander #name.ytd-author-comment-badge-renderer:hover,
+	.yt-core-attributed-string--link-inherit-color .yt-core-attributed-string__link--call-to-action-color:hover
 	{
 		color: var(--main-color) !important;
 		opacity: 1 !important;
@@ -2444,6 +2534,12 @@
 	#content.ytd-expander #name.ytd-author-comment-badge-renderer
 	{
 		color: var(--main-text) !important;
+	}
+
+	/*video description text*/
+	.yt-core-attributed-string--link-inherit-color
+	{
+		color: var(--dimmer-text) !important;
 	}
 
 	/*Heart icon in comments*/
@@ -2466,6 +2562,13 @@
 	{
 		fill: var(--main-color) !important;
 		opacity: 0.5;
+	}
+
+	/*shorts comments background*/
+	.watch-while-engagement-panel.ytd-reel-video-renderer, /*comment window background*/
+	ytd-item-section-renderer[static-comments-header] #header.ytd-item-section-renderer /*add comment background*/
+	{
+		background-color: var(--second-background) !important;
 	}
 
 	/*Fundraiser message*/
@@ -2605,9 +2708,6 @@
 	{
 		background: var(--hover-background) !important;
 	}
-  .ytd-live-chat-frame {
-    background-color: var(--main-background) !important;
-  }
 	/*emoji*/
 	yt-formatted-string.yt-emoji-picker-category-renderer
 	{
@@ -3480,6 +3580,18 @@
 	}
 
 	/*History*/
+	.page-header-view-model-wiz__page-header-title
+	{
+		color: var(--main-text) !important;
+	}
+	#channel-header.ytd-tabbed-page-header
+	{
+		--yt-lightsource-section1-color: var(--main-background);
+	}
+	#channel-header.ytd-tabbed-page-header h1
+	{
+		color: var(--main-text) !important;
+	}
 	yt-formatted-string.ytd-sub-feed-option-renderer
 	{
 		color: var(--dimmer-text) !important;
