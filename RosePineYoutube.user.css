@@ -2605,6 +2605,9 @@
 	{
 		background: var(--hover-background) !important;
 	}
+  .ytd-live-chat-frame {
+    background-color: var(--main-background) !important;
+  }
 	/*emoji*/
 	yt-formatted-string.yt-emoji-picker-category-renderer
 	{
